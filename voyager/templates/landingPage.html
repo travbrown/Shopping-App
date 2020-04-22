@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="landingPage.css">
+
+  </head>
+  <body>
+    <header>
+        <a href="/sign-in">Sign-in</a>
+        <a href="">View Cart</a>
+    </header>
+    <div>
+        <table>
+            {% for row in rows %}
+            <tr>
+                {% for col in row.values() %}
+                <td>
+                    <img>
+                    <p>{{ item.name }}</p>
+                    <p>$ {{ item.price }}</p>
+                    <form action="/cart/add">
+                        <input type="checkbox" id="itemSelection" name="itemSelection" value="1">
+                        <label for="itemSelection"> Add to Cart </label><br>
+                    </form>
+                </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+  </body>
+
+</html>

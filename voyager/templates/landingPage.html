@@ -7,21 +7,22 @@
   <body>
     <header>
         <a href="/sign-in">Sign-in</a>
-        <a href="">View Cart</a>
+        <a href="/cart/view">View Cart</a>
     </header>
     <div>
         <table>
-            {% for row in rows %}
+            {% for row in inventory %}
             <tr>
-                {% for col in row.values() %}
+                {% for item in row.values() %}
                 <td>
-                    <img>
-                    <p>{{ item.name }}</p>
-                    <p>$ {{ item.price }}</p>
-                    <form action="/cart/add">
-                        <input type="checkbox" id="itemSelection" name="itemSelection" value="1">
-                        <label for="itemSelection"> Add to Cart </label><br>
-                    </form>
+                    <div class="item-container">
+                        <p>{{ item.name }}</p>
+                        <p>$ {{ item.price }}</p>
+                        <form action="/cart/add">
+                            <input type="checkbox" id="itemSelection" name="itemSelection" value="1">
+                            <label for="itemSelection"> Add to Cart </label><br>
+                        </form>
+                    </div>
                 </td>
                 {% endfor %}
             </tr>

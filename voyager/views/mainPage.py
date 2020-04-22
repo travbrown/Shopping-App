@@ -6,6 +6,29 @@ from flask import escape
 
 from voyager.db import get_db, execute
 
+def displayItems(conn):
+    sqlCommand = "SELECT * FROM items;"
+    return execute(conn, sqlCommand)
+
+def views(bp):
+    @bp.route("/items/view")
+    def _boats():
+        with get_db() as conn:
+            rows = displayItems(conn)
+        return render_template("table.html", name="Boats", rows=rows)
+    
+    @bp.route("/cart/view", methods = ['GET'])
+    def cart_view_page():
+        return render_template("viewCart.html")
+    
+    @bp.route("/reqReport", methods = ['GET'])
+    def req_reports_page():
+        return render_template("genReport.html")
+    
+    @bp.route("/sign-in", methods = ['GET'])
+    def sign_in_page():
+        return render_template("signIn.html")
+'''
 def boats(conn):
     sqlCommand = "SELECT * FROM boats as b;"
     return execute(conn, sqlCommand)
@@ -55,3 +78,4 @@ def views(bp):
             boats_add(conn, name, color)
             rows = boats(conn)
         return render_template("table.html", name="Boats", rows=rows)
+'''

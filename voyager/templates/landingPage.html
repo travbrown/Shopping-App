@@ -8,9 +8,10 @@
     <header>
         <a href="/sign-in">Sign-in</a>
         <a href="/cart/view">View Cart</a>
-        <a href="/reqReport">Generate a Report</a>
+        <a href="/report/req">Generate a Report</a>
     </header>
     <div>
+        <h1>{{ name }}</h1>
         <table>
             {% for row in inventory %}
             <tr>

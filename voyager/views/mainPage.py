@@ -10,20 +10,54 @@ def displayItems(conn):
     sqlCommand = "SELECT * FROM items;"
     return execute(conn, sqlCommand)
 
+def addToCart(conn, item_quantity):
+    # TODO: Insert SQL to add to cart
+    sqlCommand = "SELECT * FROM items;"
+    return execute(conn, sqlCommand)
+
+def displayItemInStock(conn):
+    # TODO: Insert SQL to report/sum up Inventory
+    sqlCommand = "SELECT * FROM items;"
+    return execute(conn, sqlCommand)
+
+def sales(conn):
+    # TODO: Insert SQL to report/sum up Sales
+    sqlCommand = "SELECT * FROM items;"
+    return execute(conn, sqlCommand)
+
 def views(bp):
     @bp.route("/items/view")
-    def _boats():
+    def _displayItems():
         with get_db() as conn:
             rows = displayItems(conn)
-        return render_template("table.html", name="Boats", rows=rows)
+        return render_template("landingPage.html", name="Products", rows=rows)
     
     @bp.route("/cart/view", methods = ['GET'])
     def cart_view_page():
         return render_template("viewCart.html")
+
+    bp.route("/cart/add", methods = ['GET'])
+    def _addToCart():
+        with get_db() as conn:
+            item-quantity = request.form['item-quantity']
+            addToCart(conn, item-quantity)
+        return render_template("viewCart.html")
     
-    @bp.route("/reqReport", methods = ['GET'])
+    @bp.route("/report/req", methods = ['GET'])
     def req_reports_page():
         return render_template("genReport.html")
+
+    @bp.route("/report/stock")
+    def _displayItems():
+        with get_db() as conn:
+            rows = displayItemInStock(conn)
+        return render_template("table.html", name="Inventory In Stock", rows=rows)
+
+    @bp.route("/report/sales")
+    def _sales():
+        with get_db() as conn:
+            rows = sales(conn)
+        return render_template("table.html", name="Sales", rows=rows)
     
     @bp.route("/sign-in", methods = ['GET'])
     def sign_in_page():

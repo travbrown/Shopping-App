@@ -32,12 +32,6 @@ def views(bp):
             rows = displayItems(conn)
         return render_template("landingPage.html", name="Products", rows=rows)
     
-    @bp.route("/items/update")
-    def _displayItems():
-        with get_db() as conn:
-            rows = displayItems(conn)
-        return render_template("landingPage.html", name="Products", rows=rows)
-    
     @bp.route("/cart/view", methods = ['GET'])
     def cart_view_page():
         return render_template("viewCart.html")

@@ -7,7 +7,7 @@ from flask import escape
 from voyager.db import get_db, execute
 
 def displayItems(conn):
-    sqlCommand = "SELECT * from Boats;"
+    sqlCommand = "select * from boats;";
     return execute(conn, sqlCommand)
 
 def views(bp):

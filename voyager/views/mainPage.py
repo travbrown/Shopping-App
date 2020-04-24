@@ -7,22 +7,22 @@ from flask import escape
 from voyager.db import get_db, execute
 
 def displayItems(conn):
-    sqlCommand = "SELECT * FROM boat;"
+    sqlCommand = "select * from boats;";
     return execute(conn, sqlCommand)
 
 def addToCart(conn, item_quantity):
     # TODO: Insert SQL to add to cart
-    sqlCommand = "SELECT * FROM boat;"
+    sqlCommand = "SELECT * FROM boats;"
     return execute(conn, sqlCommand)
 
 def displayItemInStock(conn):
     # TODO: Insert SQL to report/sum up Inventory
-    sqlCommand = "SELECT * FROM boat;"
+    sqlCommand = "SELECT * FROM boats;"
     return execute(conn, sqlCommand)
 
 def sales(conn):
     # TODO: Insert SQL to report/sum up Sales
-    sqlCommand = "SELECT * FROM boat;"
+    sqlCommand = "SELECT * FROM boats;"
     return execute(conn, sqlCommand)
 
 def views(bp):

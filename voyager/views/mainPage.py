@@ -7,22 +7,22 @@ from flask import escape
 from voyager.db import get_db, execute
 
 def displayItems(conn):
-    sqlCommand = "SELECT * FROM items;"
+    sqlCommand = "SELECT * FROM boat;"
     return execute(conn, sqlCommand)
 
 def addToCart(conn, item_quantity):
     # TODO: Insert SQL to add to cart
-    sqlCommand = "SELECT * FROM items;"
+    sqlCommand = "SELECT * FROM boat;"
     return execute(conn, sqlCommand)
 
 def displayItemInStock(conn):
     # TODO: Insert SQL to report/sum up Inventory
-    sqlCommand = "SELECT * FROM items;"
+    sqlCommand = "SELECT * FROM boat;"
     return execute(conn, sqlCommand)
 
 def sales(conn):
     # TODO: Insert SQL to report/sum up Sales
-    sqlCommand = "SELECT * FROM items;"
+    sqlCommand = "SELECT * FROM boat;"
     return execute(conn, sqlCommand)
 
 def views(bp):
@@ -41,14 +41,13 @@ def views(bp):
         with get_db() as conn:
             item_quantity = request.form['item-quantity']
             addToCart(conn, item_quantity)
-        return render_template("viewCart.html")
     
     @bp.route("/report/req", methods = ['GET'])
     def req_reports_page():
         return render_template("genReport.html")
 
     @bp.route("/report/stock")
-    def _displayItems():
+    def _displayStockReport():
         with get_db() as conn:
             rows = displayItemInStock(conn)
         return render_template("table.html", name="Inventory In Stock", rows=rows)

@@ -1,10 +1,45 @@
 <html>
   <head>
     <title>Landing Page</title>
-    <link rel="stylesheet" type="text/css"  href="landingPage.css">
-
   </head>
-  <body>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+.header {
+    overflow: hidden;
+    background-color: #ff7a95;
+    padding: 20px;
+    margin-right: -10px;
+    margin-left: -10px;
+    height: 100px;
+}
+.buttonb {
+  background-color: #f7dce1;
+  border: none;
+  color: #a39b9d;
+  padding: 6px 10px;
+  text-align: center;
+  margin: 4px 2px;
+  opacity: 0.7;
+  font-size: 25px;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid #e7e7e7;
+}
+
+.buttonb:hover {opacity: 1}
+</style>
+  <body bgcolor="white">
+  <div class="header">
+    <center>
+    <h1>WELCOME!</h1>
+    <a class="buttonb" style="margin-left: 900px" href="/sign-in">Sign In</a> 
+    <a class="buttonb" href="/cart/view">View Cart</a> 
+    <a class="buttonb" href="/report/req">Generate a Report</a> 
+  </div>
+    <center>
     <header>
         <a href="/sign-in">Sign-in</a>
         <a href="/cart/view">View Cart</a>

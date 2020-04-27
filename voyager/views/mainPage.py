@@ -12,17 +12,17 @@ def displayItems(conn):
 
 def addToCart(conn, item_quantity):
     # TODO: Insert SQL to add to cart
+    item_id = request.args.get('data-itemid')
     sqlCommand = "SELECT * FROM boats;"
     return execute(conn, sqlCommand)
 
 def displayItemInStock(conn):
     # TODO: Insert SQL to report/sum up Inventory
-    sqlCommand = "SELECT * FROM boats;"
+    sqlCommand = "SELECT * FROM items;"
     return execute(conn, sqlCommand)
 
 def sales(conn):
-    # TODO: Insert SQL to report/sum up Sales
-    sqlCommand = "SELECT * FROM boats;"
+    sqlCommand = "SELECT sum(ordertotal) as Total FROM orders;"
     return execute(conn, sqlCommand)
 
 def views(bp):
@@ -42,9 +42,11 @@ def views(bp):
             item_quantity = request.form['item-quantity']
             addToCart(conn, item_quantity)
     
-    @bp.route("/report/req", methods = ['GET'])
+    @bp.route("/report/order", methods = ['GET'])
     def req_reports_page():
-        return render_template("genReport.html")
+        with get_db() as conn:
+            rows = sales(conn)
+        return render_template("table.html", name="Sales", rows=rows)
 
     @bp.route("/report/stock")
     def _displayStockReport():

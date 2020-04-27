@@ -37,7 +37,8 @@
     <h1>WELCOME!</h1>
     <a class="buttonb" style="margin-left: 900px" href="/sign-in">Sign In</a> 
     <a class="buttonb" href="/cart/view">View Cart</a> 
-    <a class="buttonb" href="/report/req">Generate a Report</a> 
+    <a class="buttonb" href="/report/order">Generate Order Report</a> 
+    <a class="buttonb" href="/report/stock">Generate Item Report</a> 
   </div>
     <center>
     <header>
@@ -52,9 +53,9 @@
             <tr>
                 <td>
                     <div class="item-container">
-                        <p>{{ row.name }}</p>
+                        <p data-itemid="">{{ row.name }}</p>
                         <p>${{ row.price }}</p>
-                        <form action="/cart/add" method=POST>
+                        <form action="/cart/add/" method=POST>
                             <label>Quantity:</label>
                             <input name="item-quantity"/>
                             <input type=submit value="Add to Cart"/>

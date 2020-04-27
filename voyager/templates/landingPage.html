@@ -205,29 +205,13 @@ window.onclick = function(event) {
     <center>
     <div>
         <h1>{{ name }}</h1>
-        <table>
-            {% if rows %}
-            <tr>
-                {% for name in rows[0].keys() %}
-                <th>{{ name }}</th>
-                {% endfor %}
-            <tr>
-            {% endif %}
+         <table>
             {% for row in rows %}
             <tr>
-                {% for col in row.values() %}
-                <td>{{ col }}</td>
-                {% endfor %}
-            </tr>
-            {% endfor %}
-        <!-- <table>
-            {% for row in inventory %}
-            <tr>
-                {% for item in row.values() %}
                 <td>
                     <div class="item-container">
-                        <p>{{ item.name }}</p>
-                        <p>$ {{ item.price }}</p>
+                        <p>{{ row.name }}</p>
+                        <p>${{ row.price }}</p>
                         <form action="/cart/add" method=POST>
                             <label>Quantity:</label>
                             <input name="item-quantity"/>
@@ -235,10 +219,9 @@ window.onclick = function(event) {
                         </form>
                     </div>
                 </td>
-                {% endfor %}
             </tr>
         {% endfor %}
-        </table> -->
+        </table> 
     </div>
   </body>
 

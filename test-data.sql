@@ -19,28 +19,28 @@ VALUES
 INSERT INTO Discount 
   (discID, description, percentage)
 VALUES
-  ('no', 'nothing', 0%),
-  ('3r3j3', 'a lil off', 10%),
-  ('jeb3j', 'a lil more off', 20%),
-  ('7y7y', 'you not getting no more than this', 30%);
+  ('no', 'nothing', 0.0),
+  ('3r3j3', 'a lil off', 0.10),
+  ('jeb3j', 'a lil more off', 0.20),
+  ('7y7y', 'you not getting no more than this', 0.30);
 
-CREATE TABLE IF NOT EXISTS Customer 
+INSERT INTO Customer 
   (custID, name, cartID, address, email, phone, DOB, gender, password)
 VALUES
   (100, 'Travis', 500, '2251 Sherman Avenue', 'tjb692@gmail.com', '123-4567', '2000-08-23', 'M', 'kew'),
-  (111, 'Janaki', 511, '543 Hyman Street', 'janitang@gmail.com', '765-4321', '2000-2-4', 'F', 'kjfb'),
-  (122, 'Krista', 522, '420 Junik lane', 'kkatzen@gmail.com', '121-2123', '2000-6-8', 'F', 'ekjb'),
-  (133, 'Jeremy', 533, '435 Yuha Ave', 'jjman@gmail.com', '748-3882', '2000-7-2', 'M', 'eue'),
+  (111, 'Janaki', 511, '543 Hyman Street', 'janitang@gmail.com', '765-4321', '2000-02-04', 'F', 'kjfb'),
+  (122, 'Krista', 522, '420 Junik lane', 'kkatzen@gmail.com', '121-2123', '2000-06-08', 'F', 'ekjb'),
+  (133, 'Jeremy', 533, '435 Yuha Ave', 'jjman@gmail.com', '748-3882', '2000-07-02', 'M', 'eue'),
   (144, 'Kode', 544, '483 Wedi Circle', 'digadbrogad@gmail.com', '828-3992', '2000-11-28', 'M', 'iern');
 
 INSERT INTO Orders
   (orderID, custID, orderstatus, ordertotal,orderdate, recipient_name, shipping_addr)
 VALUES
-  (700, 100, 'pending', 300, 2020-04-25, 'Travis', '2251 Sherman Avenue'),
-  (711, 111, 'ongoing', 720, 2020-04-17, 'Tina', '543 Hyman Street'),
-  (722, 122, 'completed', 2400, 2020-04-01, 'Peniel', '420 Junik Lane'),
-  (733, 133, 'pending', 105, 2020-04-23, 'Mekano', '435 Yuha Ave'),
-  (744, 144, 'ongoing', 5600, 2020-04-19, 'Fiji', '483 Wedi Circle');
+  (700, 100, 'pending', 300, '2020-04-25', 'Travis', '2251 Sherman Avenue'),
+  (711, 111, 'ongoing', 720, '2020-04-17', 'Tina', '543 Hyman Street'),
+  (722, 122, 'completed', 2400, '2020-04-01', 'Peniel', '420 Junik Lane'),
+  (733, 133, 'pending', 105, '2020-04-23', 'Mekano', '435 Yuha Ave'),
+  (744, 144, 'ongoing', 5600, '2020-04-19', 'Fiji', '483 Wedi Circle');
 
 INSERT INTO OrdersItems 
   (orderID, itemID, discID, quantity, totalSalePrice)
@@ -50,9 +50,6 @@ VALUES
   (722, 922, 'jeb3j', 6, 2400),
   (733, 933, '7y7y', 3, 105),
   (744, 944, 'no', 8, 5600);
-
-
-
 
 INSERT INTO Sailors
   (name, age, experience)

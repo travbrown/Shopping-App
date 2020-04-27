@@ -8,13 +8,13 @@ VALUES
   (944, 'Nike Shoes', 'Stolen from a Nike Package to Beyonce', 44, 700);
 
 INSERT INTO Cart 
-  (cartID, discID, itemID, quantity,subtotal)
+  (cartID, itemID, discID, quantity,subtotal)
 VALUES
-  (500,'jeb3j', 900, 7, 560),
-  (511, 'no', 911, 8, 1600),
-  (522, '3r3j3', 922, 8, 3600),
-  (533, '7y7y', 933, 2, 70),
-  (544, '3r3j3', 944, 3, 1890);
+  (500, 900,'jeb3j',  7, 560),
+  (511, 911,'no', 8, 1600),
+  (522, 922, '3r3j3', 8, 3600),
+  (533, 933,'7y7y',  2, 70),
+  (544,  944,'3r3j3', 3, 1890);
 
 INSERT INTO Discount 
   (discID, description, percentage)

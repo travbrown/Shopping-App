@@ -7,12 +7,12 @@ from flask import escape
 from voyager.db import get_db, execute
 
 def displayItems(conn):
-    sqlCommand = "select * from boats;";
+    sqlCommand = "select * from items;";
     return execute(conn, sqlCommand)
 
 def addToCart(conn, item_quantity):
     # TODO: Insert SQL to add to cart
-    item_id = request.args.get('data-itemid')
+    # item_id = request.args.get('data-itemid')
     sqlCommand = "SELECT * FROM boats;"
     return execute(conn, sqlCommand)
 
@@ -30,7 +30,9 @@ def views(bp):
     def _displayItems():
         with get_db() as conn:
             rows = displayItems(conn)
+            #check user session & pass in their cartID
         return render_template("landingPage.html", name="Products", rows=rows)
+
     @bp.route("/cart/view", methods = ['GET'])
     def cart_view_page():
         return render_template("cart.html")

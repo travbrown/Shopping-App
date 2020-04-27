@@ -4,9 +4,15 @@
   </head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-.form {
-  display: grid;
-  grid-template-columns: 1fr auto;
+table {
+  width:100%;
+}
+table, th, td {
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: center;
 }
 .header {
     overflow: hidden;
@@ -57,8 +63,7 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 40%;
-  margin-left: 130px;
+  width: 20%;
 }
 
 button:hover {
@@ -236,10 +241,13 @@ window.onclick = function(event) {
   </div>
     <center>
     <div>
+    <table>
         <h1>{{ name }}</h1>
-         <table>
+         
             {% for row in rows %}
+            
             <tr>
+            
                 <td>
                     <form action="/cart/{{cartID}}/add/{{itemID}}" class="form" method=POST>
                         <div class="card">    
@@ -252,6 +260,7 @@ window.onclick = function(event) {
                         </div>
                     </form>  
                 </td>
+                
             </tr>
         {% endfor %}
         </table> 

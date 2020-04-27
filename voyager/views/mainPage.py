@@ -31,12 +31,11 @@ def views(bp):
         with get_db() as conn:
             rows = displayItems(conn)
         return render_template("landingPage.html", name="Products", rows=rows)
-    
     @bp.route("/cart/view", methods = ['GET'])
     def cart_view_page():
-        return render_template("viewCart.html")
+        return render_template("cart.html")
 
-    bp.route("/cart/add", methods = ['GET'])
+    @bp.route("/cart/add", methods = ['GET'])
     def _addToCart():
         with get_db() as conn:
             item_quantity = request.form['item-quantity']

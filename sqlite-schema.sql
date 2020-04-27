@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS Cart (
 CREATE TABLE IF NOT EXISTS Discount (
   discID TEXT PRIMARY KEY,
   description TEXT,
-  percentage INTEGER NOT NULL,
+  percentage INTEGER NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Customer (
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS Customer (
   phone INTEGER NOT NULL,
   DOB DATE NOT NULL,
   gender TEXT NOT NULL,
-  password TEXT NOT NULL,
+  password TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Orders (
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS Orders (
   ordertotal INTEGER NOT NULL,
   orderdate DATE NOT NULL,
   recipient_name TEXT NOT NULL,
-  shipping_addr TEXT NOT NULL,
+  shipping_addr TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS OrdersItems (

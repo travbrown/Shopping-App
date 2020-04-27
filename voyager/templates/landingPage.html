@@ -4,7 +4,10 @@
   </head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-
+.form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
 .header {
     overflow: hidden;
     background-color: #c9b9c3;
@@ -152,6 +155,34 @@ span.psw {
      width: 100%;
   }
 }
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
 </style>
   <body bgcolor="white">
   <div class="header">
@@ -209,15 +240,18 @@ window.onclick = function(event) {
             {% for row in rows %}
             <tr>
                 <td>
-                    <div class="item-container">
-                        <p>{{ row.name }}</p>
-                        <p>${{ row.price }}</p>
-                        <form action="/cart/add" method=POST>
+                        <form action="/cart/add" class="form" method=POST>
+                            <div class="card">    
+                            <h1>{{ row.name }}</h1>
+                            <p class="price">${{ row.price }}</p>
+                            <p>{{row.description}}</p>
                             <label>Quantity:</label>
-                            <input name="item-quantity"/>
-                            <input type=submit value="Add to Cart"/>
+                            <input name="item-quantity" required/>
+                            <button><input class= "card button" type=submit value="Add to Cart"/></button>
+                            </div>
+                        
                         </form>
-                    </div>
+                    </div>  
                 </td>
             </tr>
         {% endfor %}

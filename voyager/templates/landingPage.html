@@ -4,9 +4,15 @@
   </head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-.form {
-  display: grid;
-  grid-template-columns: 1fr auto;
+table {
+  width:100%;
+}
+table, th, td {
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: center;
 }
 .header {
     overflow: hidden;
@@ -57,8 +63,7 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 40%;
-  margin-left: 130px;
+  width: 20%;
 }
 
 button:hover {
@@ -235,24 +240,32 @@ window.onclick = function(event) {
   </div>
     <center>
     <div>
+    <table>
         <h1>{{ name }}</h1>
-         <table>
+         
             {% for row in rows %}
+            
             <tr>
+            
                 <td>
-                        <form action="/cart/add" class="form" method=POST>
-                            <div class="card">    
-                            <h1>{{ row.name }}</h1>
-                            <p class="price">${{ row.price }}</p>
-                            <p>{{row.description}}</p>
-                            <label>Quantity:</label>
-                            <input name="item-quantity" required/>
-                            <button><input class= "card button" type=submit value="Add to Cart"/></button>
-                            </div>
+                <table>
+                <form action="/cart/add" method=POST>
+                    <div class="card">    
+                    <h1>{{ row.name }}</h1>
+                    <p class="price">${{ row.price }}</p>
+                    <p>{{row.description}}</p>
+                    <label>Quantity:</label>
+                    <input name="item-quantity" required/>
+                    <center>
+                    <button><input class= "card button" type=submit value="Add to Cart"/></button>
+                    </center>
+                    </div>
                         
                         </form>
+                        </table>
                     </div>  
                 </td>
+                
             </tr>
         {% endfor %}
         </table> 
